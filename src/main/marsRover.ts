@@ -9,7 +9,7 @@ export class MarsRover {
         this.direction = direction;
     }
 
-    move(command: string) {
+    moveForward() {
         switch(this.direction){
             case 'W':
                 this.xCoordinate--;
@@ -23,7 +23,18 @@ export class MarsRover {
             case 'S':
                 this.yCoordinate--;
         }
+    }
 
+    moveRight() {
+        this.direction = 'E';
+    }
+
+    processCommand(command: string) {
+        if (command === 'M') {
+            this.moveForward();
+        } else {
+            this.moveRight();
+        }
     }
 
     getCoordinateAndDirection(): string {
