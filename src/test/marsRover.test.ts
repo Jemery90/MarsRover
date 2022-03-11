@@ -1,3 +1,4 @@
+import { isElementAccessChain } from "typescript";
 import {MarsRover} from "../main/marsRover";
 
 describe('MarsRover', () => {
@@ -6,25 +7,18 @@ describe('MarsRover', () => {
        expect(marsRover).toBeDefined();
     });
     describe('Given a move command', () => {
-        it('When the rover is facing south it should move south', () => {
-            const marsRover = new MarsRover(1, 1, 'S');
+        it.each([
+            ['S', '1:0'],
+            ['W', '0:1'],
+            ['E', '2:1'],
+            ['N', '1:2'],
+            ['B', '1:1']
+        ]
+        )('When the rover is facing %s it should in that direction', (direction:string, expectedCoordinates:string) =>{
+            const marsRover = new MarsRover(1, 1, direction);
             marsRover.move('M');
-           expect(marsRover.getCoordinate()).toBe('1:0');
-        });
-        it('When the rover is facing west it should move west', () => {
-            const marsRover = new MarsRover(1, 1, 'W');
-            marsRover.move('M');
-           expect(marsRover.getCoordinate()).toBe('0:1');
-        });
-        it('When the rover is facing east it should move east', () => {
-            const marsRover = new MarsRover(1, 1, 'E');
-            marsRover.move('M');
-           expect(marsRover.getCoordinate()).toBe('2:1');
-        });
-        it('When the rover is facing north it should move north', () => {
-            const marsRover = new MarsRover(1, 1, 'N');
-            marsRover.move('M');
-            expect(marsRover.getCoordinate()).toBe('1:2');
-        });
+           expect(marsRover.getCoordinate()).toBe(expectedCoordinates);
+        })
+        
     });
 });

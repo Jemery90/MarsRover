@@ -10,12 +10,18 @@ export class MarsRover {
     }
 
     move(command: string) {
-        if (this.direction === 'W') {
-            this.xCoordinate--;
-        } else if (this.direction === 'E') {
-            this.xCoordinate++;
-        } else {
-            this.yCoordinate--;
+        switch(this.direction){
+            case 'W':
+                this.xCoordinate--;
+                break
+            case 'E':
+                this.xCoordinate++;
+                break
+            case 'N':
+                this.yCoordinate++;
+                break
+            default:
+                this.yCoordinate--;
         }
 
     }
