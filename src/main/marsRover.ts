@@ -20,13 +20,13 @@ export class MarsRover {
             case 'N':
                 this.yCoordinate++;
                 break
-            default:
+            case 'S':
                 this.yCoordinate--;
         }
 
     }
 
-    getCoordinate(): string {
-        return this.xCoordinate + ':' + this.yCoordinate;
+    getCoordinateAndDirection(): string {
+        return  `${this.xCoordinate}:${this.yCoordinate}:${this.direction}`;
     }
 }
