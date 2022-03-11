@@ -1,0 +1,19 @@
+{
+  "name": "mars",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000M\u0000a\u0000r\u0000s\u0000R\u0000o\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jemery90/MarsRover.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jemery90/MarsRover/issues"
+  },
+  "homepage": "https://github.com/Jemery90/MarsRover#readme"
+}
