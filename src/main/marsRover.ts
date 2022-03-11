@@ -25,16 +25,22 @@ export class MarsRover {
         }
     }
 
-    moveRight() {
-        this.direction = 'E';
+    rotateRight() {
+        if (this.direction === 'N') {
+            this.direction = 'E';
+        }
+        else if (this.direction === 'E') {
+            this.direction = 'S';
+        }
     }
 
     processCommand(command: string) {
         if (command === 'M') {
             this.moveForward();
         } else {
-            this.moveRight();
+            this.rotateRight();
         }
+
     }
 
     getCoordinateAndDirection(): string {
