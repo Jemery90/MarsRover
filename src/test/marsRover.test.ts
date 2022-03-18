@@ -1,4 +1,4 @@
-import {MarsRover} from "../main/marsRover";
+import { MarsRover } from "../main/marsRover";
 
 describe('MarsRover', () => {
     it('should be able to initialise a new Mars Rover', () => {
@@ -7,12 +7,12 @@ describe('MarsRover', () => {
     });
     describe('Given a move command', () => {
         it.each([
-                ['S', '1:0:S'],
-                ['W', '0:1:W'],
-                ['E', '2:1:E'],
-                ['N', '1:2:N'],
-                ['B', '1:1:B']
-            ]
+            ['S', '1:0:S'],
+            ['W', '0:1:W'],
+            ['E', '2:1:E'],
+            ['N', '1:2:N'],
+            ['B', '1:1:B']
+        ]
         )('When the rover is facing %s it should in that direction', (direction: string, expectedCoordinates: string) => {
             const marsRover = new MarsRover(1, 1, direction);
             marsRover.processCommand('M');
@@ -35,6 +35,11 @@ describe('MarsRover', () => {
             const marsRover = new MarsRover(1, 1, 'S');
             marsRover.processCommand('R');
             expect(marsRover.getCoordinateAndDirection()).toBe('1:1:W');
+        });
+        it('When the rover is facing west should rotate to face north', () => {
+            const marsRover = new MarsRover(1, 1, 'W');
+            marsRover.processCommand('R');
+            expect(marsRover.getCoordinateAndDirection()).toBe('1:1:N');
         });
     });
 });

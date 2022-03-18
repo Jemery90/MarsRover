@@ -10,7 +10,7 @@ export class MarsRover {
     }
 
     moveForward() {
-        switch(this.direction){
+        switch (this.direction) {
             case 'W':
                 this.xCoordinate--;
                 break
@@ -32,6 +32,12 @@ export class MarsRover {
         else if (this.direction === 'E') {
             this.direction = 'S';
         }
+        else if (this.direction === 'S') {
+            this.direction = 'W';
+        }
+        else if (this.direction === 'W') {
+            this.direction = 'N';
+        }
     }
 
     processCommand(command: string) {
@@ -44,6 +50,6 @@ export class MarsRover {
     }
 
     getCoordinateAndDirection(): string {
-        return  `${this.xCoordinate}:${this.yCoordinate}:${this.direction}`;
+        return `${this.xCoordinate}:${this.yCoordinate}:${this.direction}`;
     }
 }
