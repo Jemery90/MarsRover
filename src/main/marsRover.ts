@@ -55,6 +55,11 @@ export class MarsRover {
         }
     }
 
+    processCommands(command: string) {
+        for (let commandIndex = 0; commandIndex < command.length; commandIndex++) {
+            this.processCommand(command[commandIndex]);
+        }
+    }
 
     processCommand(command: string) {
         if (command === 'M') {
