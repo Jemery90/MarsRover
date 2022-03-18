@@ -42,4 +42,16 @@ describe('MarsRover', () => {
             expect(marsRover.getCoordinateAndDirection()).toBe('1:1:N');
         });
     });
+    describe('Given a turn left command', () => {
+        it('When the rover is facing north should rotate to face west', () => {
+            const marsRover = new MarsRover(1, 1, 'N');
+            marsRover.processCommand('L');
+            expect(marsRover.getCoordinateAndDirection()).toBe('1:1:W');
+        });
+        it('When the rover is facing west should rotate to face south', () => {
+            const marsRover = new MarsRover(1, 1, 'W');
+            marsRover.processCommand('L');
+            expect(marsRover.getCoordinateAndDirection()).toBe('1:1:S');
+        });
+    });
 });

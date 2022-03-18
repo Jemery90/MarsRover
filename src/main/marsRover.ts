@@ -40,11 +40,17 @@ export class MarsRover {
         }
     }
 
+    rotateLeft() {
+        this.direction = 'W';
+    }
+
     processCommand(command: string) {
         if (command === 'M') {
             this.moveForward();
-        } else {
+        } else if (command === 'R') {
             this.rotateRight();
+        } else {
+            this.rotateLeft();
         }
 
     }
