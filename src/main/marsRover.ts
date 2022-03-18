@@ -1,3 +1,5 @@
+import { Command } from "./command";
+import { TurnLeft } from "./turnLeft";
 import { TurnRight } from "./turnRight";
 
 const xBound = 10;
@@ -14,11 +16,11 @@ export class MarsRover {
         this.direction = direction;
     }
 
-    getDirection(){
+    getDirection() {
         return this.direction;
     }
 
-    setDirection(direction:string){
+    setDirection(direction: string) {
         this.direction = direction;
     }
 
@@ -56,20 +58,6 @@ export class MarsRover {
         }
     }
 
-    rotateLeft() {
-        if (this.direction === 'N') {
-            this.direction = 'W';
-        }
-        else if (this.direction === 'W') {
-            this.direction = 'S';
-        }
-        else if (this.direction === 'S') {
-            this.direction = 'E';
-        }
-        else if (this.direction === 'E') {
-            this.direction = 'N';
-        }
-    }
 
     processCommands(command: string) {
         for (let commandIndex = 0; commandIndex < command.length; commandIndex++) {
@@ -78,13 +66,15 @@ export class MarsRover {
     }
 
     processCommand(command: string) {
+        let move: Command;
         if (command === 'M') {
             this.moveForward();
         } else if (command === 'R') {
-            new TurnRight(this).execute();
+            move = new TurnRight(this);
         } else {
-            this.rotateLeft();
+            move = new TurnLeft(this);
         }
+        move.execute();
 
     }
 
