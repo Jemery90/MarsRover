@@ -53,5 +53,10 @@ describe('MarsRover', () => {
             marsRover.processCommand('L');
             expect(marsRover.getCoordinateAndDirection()).toBe('1:1:S');
         });
+        it('When the rover is facing south should rotate to face east', () => {
+            const marsRover = new MarsRover(1, 1, 'S');
+            marsRover.processCommand('L');
+            expect(marsRover.getCoordinateAndDirection()).toBe('1:1:E');
+        });
     });
 });

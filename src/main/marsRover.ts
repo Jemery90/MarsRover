@@ -41,7 +41,12 @@ export class MarsRover {
     }
 
     rotateLeft() {
-        this.direction = 'W';
+        if (this.direction === 'N') {
+            this.direction = 'W';
+        }
+        else if (this.direction === 'W') {
+            this.direction = 'S';
+        }
     }
 
     processCommand(command: string) {
