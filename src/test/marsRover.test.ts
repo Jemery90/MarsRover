@@ -82,10 +82,5 @@ describe('MarsRover', () => {
             marsRover.processCommands('M');
             expect(marsRover.getCoordinateAndDirection()).toBe('1:0:N');
         });
-        it('should wrap around to the start of the board if y coordinate is 0', () => {
-            const marsRover = new MarsRover(1, 0, 'S');
-            marsRover.processCommands('M');
-            expect(marsRover.getCoordinateAndDirection()).toBe('1:10:S');
-        });
     });
 });

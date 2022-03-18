@@ -1,3 +1,5 @@
+import { TurnRight } from "./turnRight";
+
 const xBound = 10;
 const yBound = 10;
 
@@ -9,6 +11,14 @@ export class MarsRover {
     constructor(xCoordinate: number, yCoordinate: number, direction: string) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
+        this.direction = direction;
+    }
+
+    getDirection(){
+        return this.direction;
+    }
+
+    setDirection(direction:string){
         this.direction = direction;
     }
 
@@ -25,7 +35,7 @@ export class MarsRover {
             this.xCoordinate = 0;
             return;
         }
-        
+
         if (this.roverIsAtNorthenEdgeOfBoard()) {
             this.yCoordinate = 0;
             return;
@@ -43,21 +53,6 @@ export class MarsRover {
                 break
             case 'S':
                 this.yCoordinate--;
-        }
-    }
-
-    rotateRight() {
-        if (this.direction === 'N') {
-            this.direction = 'E';
-        }
-        else if (this.direction === 'E') {
-            this.direction = 'S';
-        }
-        else if (this.direction === 'S') {
-            this.direction = 'W';
-        }
-        else if (this.direction === 'W') {
-            this.direction = 'N';
         }
     }
 
@@ -86,7 +81,7 @@ export class MarsRover {
         if (command === 'M') {
             this.moveForward();
         } else if (command === 'R') {
-            this.rotateRight();
+            new TurnRight(this).execute();
         } else {
             this.rotateLeft();
         }
