@@ -71,4 +71,16 @@ describe('MarsRover', () => {
             expect(marsRover.getCoordinateAndDirection()).toBe('1:4:E');
         });
     });
+    describe('Given the rover is at the end the board', () => {
+       it('should wrap around to the start of the board if x coordinate is 10', () => {
+           const marsRover = new MarsRover(10, 1, 'E');
+           marsRover.processCommands('M');
+           expect(marsRover.getCoordinateAndDirection()).toBe('0:1:E');
+       });
+        it('should wrap around to the start of the board if y coordinate is 10', () => {
+            const marsRover = new MarsRover(1, 10, 'N');
+            marsRover.processCommands('M');
+            expect(marsRover.getCoordinateAndDirection()).toBe('1:0:N');
+        });
+    });
 });

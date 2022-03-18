@@ -1,3 +1,5 @@
+const xBound = 10;
+
 export class MarsRover {
     private xCoordinate: number;
     private yCoordinate: number;
@@ -9,7 +11,16 @@ export class MarsRover {
         this.direction = direction;
     }
 
+    roverIsAtEndOfBoard() {
+        return this.xCoordinate === xBound;
+    }
+
     moveForward() {
+        if (this.roverIsAtEndOfBoard()) {
+            this.xCoordinate = 0;
+            return;
+        }
+
         switch (this.direction) {
             case 'W':
                 this.xCoordinate--;
